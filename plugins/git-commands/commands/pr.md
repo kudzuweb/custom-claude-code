@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git checkout --branch:*), Bash(git push:*), Bash(git log:*), Bash(gh pr create:*)
+allowed-tools: Bash(git checkout --branch:*), Bash(git push:*), Bash(git log:*), Bash(gh pr create:*), Bash(git branch:*), AskUserQuestion
 description: Create a PR from committed changes with review before pushing
 ---
 
