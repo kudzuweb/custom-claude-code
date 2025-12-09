@@ -7,7 +7,7 @@ from functools import lru_cache
 from typing import List, Dict, Any, Optional
 
 # Import from local module
-from hookify.core.config_loader import Rule, Condition
+from core.config_loader import Rule, Condition
 
 
 # Cache compiled regexes (max 128 patterns)

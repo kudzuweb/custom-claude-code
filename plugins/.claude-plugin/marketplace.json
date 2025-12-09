@@ -1,0 +1,53 @@
+{
+  "name": "local-plugins",
+  "owner": {
+    "name": "Mauria Parker"
+  },
+  "plugins": [
+    {
+      "name": "git-commands",
+      "source": "./git-commands",
+      "description": "Git workflow commands for committing and PRs"
+    },
+    {
+      "name": "frontend-design",
+      "source": "./frontend-design",
+      "description": "Frontend design skill with gemini integration"
+    },
+    {
+      "name": "hookify",
+      "source": "./hookify",
+      "description": "Create custom hooks for Claude Code"
+    },
+    {
+      "name": "learning-output-style",
+      "source": "./learning-output-style",
+      "description": "Interactive learning mode"
+    },
+    {
+      "name": "cc-plugin-dev",
+      "source": "./cc-plugin-dev",
+      "description": "Plugin development tools"
+    },
+    {
+      "name": "pr-review-toolkit",
+      "source": "./pr-review-toolkit",
+      "description": "PR review agents"
+    },
+    {
+      "name": "ralph-wiggum",
+      "source": "./ralph-wiggum",
+      "description": "Ralph Wiggum mode"
+    },
+    {
+      "name": "security-guidance",
+      "source": "./security-guidance",
+      "description": "Security warnings on file edits"
+    },
+    {
+      "name": "cc-marketplace-guide",
+      "source": "./cc-marketplace-guide",
+      "description": "Guide for installing plugins and managing marketplaces"
+    }
+  ]
+}

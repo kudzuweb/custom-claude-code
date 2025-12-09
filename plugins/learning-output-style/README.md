@@ -1,29 +1,27 @@
 # Learning Style Plugin
 
-This plugin combines the unshipped Learning output style with explanatory functionality as a SessionStart hook.
+Interactive learning mode that engages you in active coding through meaningful contributions at decision points.
 
-**Note:** This plugin differs from the original unshipped Learning output style by also incorporating all functionality from the [explanatory-output-style plugin](https://github.com/anthropics/claude-code/tree/main/plugins/explanatory-output-style), providing both interactive learning and educational insights.
-
-WARNING: Do not install this plugin unless you are fine with incurring the token cost of this plugin's additional instructions and the interactive nature of learning mode.
+**Note:** This is a customized version that uses a command (`/learning-mode`) instead of auto-activating. You control when learning mode is active.
 
 ## What it does
 
-When enabled, this plugin automatically adds instructions at the start of each session that encourage Claude to:
+When you invoke `/learning-mode`, Claude adopts an interactive teaching approach that:
 
-1. **Learning Mode:** Engage you in active learning by requesting meaningful code contributions at decision points
-2. **Explanatory Mode:** Provide educational insights about implementation choices and codebase patterns
+1. **Learning Mode:** Requests meaningful code contributions (5-10 lines) at decision points where your input truly matters
+2. **Explanatory Mode:** Provides educational insights about implementation choices and codebase patterns
 
 Instead of implementing everything automatically, Claude will:
 
-1. Identify opportunities where you can write 5-10 lines of meaningful code
-2. Focus on business logic and design choices where your input truly matters
+1. Identify opportunities where you can write meaningful code
+2. Focus on business logic and design choices where your input shapes the solution
 3. Prepare the context and location for your contribution
 4. Explain trade-offs and guide your implementation
 5. Provide educational insights before and after writing code
 
 ## How it works
 
-The plugin uses a SessionStart hook to inject additional context into every session. This context instructs Claude to adopt an interactive teaching approach where you actively participate in writing key parts of the code.
+When you run `/learning-mode`, Claude injects learning instructions into that session only. This context instructs Claude to adopt an interactive teaching approach where you actively participate in writing key parts of the code.
 
 ## When Claude requests contributions
 
@@ -71,22 +69,37 @@ These insights focus on:
 
 ## Usage
 
-Once installed, the plugin activates automatically at the start of every session. No additional configuration is needed.
+Use the command `/learning-mode` to activate learning mode for the current session:
 
-## Migration from Output Styles
+```bash
+/learning-mode
+```
 
-This plugin combines the unshipped "Learning" output style with the deprecated "Explanatory" output style. It provides an interactive learning experience where you actively contribute code at meaningful decision points, while also receiving educational insights about implementation choices.
+This injects learning mode instructions for that session only. It does NOT activate automatically - you control when to use it.
 
-If you previously used the explanatory-output-style plugin, this learning plugin includes all of that functionality plus interactive learning features.
+**Example:**
+```bash
+# Start working on a feature
+# Then activate learning mode when you want interactive feedback:
+/learning-mode
 
-This SessionStart hook pattern is roughly equivalent to CLAUDE.md, but it is more flexible and allows for distribution through plugins.
+# Claude will now request your input at decision points
+```
+
+## Customizations
+
+This is a customized version of the learning style plugin:
+
+- **Command-based activation**: Use `/learning-mode` to enable it for a session
+- **No auto-activation**: It doesn't activate automatically on every session (avoiding token waste)
+- **Full control**: You decide when learning mode is helpful
+- **Session-scoped**: Effects only apply to the session where you run the command
 
 ## Managing changes
 
-- Disable the plugin - keep the code installed on your device
-- Uninstall the plugin - remove the code from your device
-- Update the plugin - create a local copy of this plugin to personalize it
-  - Hint: Ask Claude to read https://docs.claude.com/en/docs/claude-code/plugins.md and set it up for you!
+- To disable: Simply don't run `/learning-mode`
+- To remove: Uninstall the plugin from Claude Code
+- To customize: Edit the `/learning-mode` command or the SKILL.md file
 
 ## Philosophy
 
